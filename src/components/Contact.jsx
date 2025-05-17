@@ -1,0 +1,12 @@
+//rafce => short cut to create a component
+import React from 'react'
+
+const Contact = () => {
+  return (
+    <div>
+        <h1>Contact us page</h1>
+    </div>
+  )
+}
+
+export default Contact
