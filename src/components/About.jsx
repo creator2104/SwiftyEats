@@ -18,8 +18,8 @@ class About extends React.Component{
         // console.log("parent render");
        return(
         <div>
-            <h1>About class component</h1>
-            <h2>This is namaste react series</h2>
+            <h1 className="p-4">About class component</h1>
+            <h2 className="p-4">This is namaste react series</h2>
             <UserClass name={"first"} location={"Gujarat class"}/> 
             {/* <UserClass name={"second"} location={"US"}/>  */}
         </div>

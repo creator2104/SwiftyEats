@@ -24,22 +24,22 @@ export const Header = () => {
 
     const OnlineStatus = useOnlineStatus()
     return (
-        <div className="flex justify-between font-serif shadow-lg sticky top-0 bg-white">
-        <div className="logo-container">
+        <div className="flex justify-between font-serif shadow-lg sticky top-0 bg-white text-lg z-50">
+        <div className="logo-container flex">
           <img className="w-28" src={LOGO_URL} alt="Food-app-logo"/>
         </div>
         <div className="nav-items">
          <ul className="flex p-4 m-4 space-x-6">
-            <li className="hover:underline">
+            <li className="p-1">
               Online Status: {OnlineStatus ? "✅" : "🛑"} 
             </li>
-            <li className="hover:underline"> <Link to="/">Home</Link></li>
-            <li className="hover:underline"> <Link to="/grocery">Grocery</Link></li>
+            <li className="hover:bg-gray-200 p-1 cursor-pointer"> <Link to="/">Home</Link></li>
+            <li className="hover:bg-gray-200 p-1 cursor-pointer"> <Link to="/grocery">Grocery</Link></li>
             {/* never use anchor tag in react instead use link beacuse anchor tag reloads whole page everytime and link refreshes only perticular component */}
-            <li className="hover:underline"> <Link to="/about">About us</Link></li>
-            <li className="hover:underline"> <Link to="/contact">Contact us</Link></li> 
-            <li className="hover:underline">Cart</li>
-            <button className="" onClick={()=>{
+            <li className="hover:bg-gray-200 p-1 cursor-pointer"> <Link to="/about">About us</Link></li>
+            <li className="hover:bg-gray-200 p-1 cursor-pointer"> <Link to="/contact">Contact us</Link></li> 
+            <li className="cursor-pointer p-1">Cart</li>
+              <button className="bg-orange-500 text-white px-4 rounded-lg border-1 hover:bg-orange-600 cursor-pointer" onClick={()=>{
               btnNameReact=="Login" ? setbtnNameReact("Logout") : setbtnNameReact("Login")
               // whenever this setbtnnamereact is getting called react will re-render whole header component 
               // every time the button is getting clicked react is doing re-consilliation process and diff algo and it also changes the button only not doing on another dom element that's why react is fast bcz it concentrate on the needed element to be updated

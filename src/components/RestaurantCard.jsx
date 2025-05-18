@@ -1,17 +1,13 @@
 import { CDN_URL } from "../utils/constants";
 // this is how you write named import
 
-const stylecard = {
-    backgroundColor : "#f0f0f0"
-}
-
 const RestaunrantCard = ({resData}) =>{
-    const {cloudinaryImageId,name,cuisines,avgRatingString,costForTwo} = resData?.info;
+    const {cloudinaryImageId,name,cuisines,avgRatingString,costForTwo} = resData.info;
     return( 
-    <div className="res-card" style={stylecard}>
+    <div className="res-card bg-gray-100 w-66 h-130 ml-8 my-6 shadow-lg rounded-lg p-4 hover:shadow-2xl transition-all duration-200 ease-in-out transform hover:scale-105">
     
-    <img className="res-logo" src={CDN_URL+cloudinaryImageId} alt="res-logo"/>
-          <h3>{name}</h3>
+    <img className="res-logo h-70 mb-4" src={CDN_URL+cloudinaryImageId} alt="res-logo"/>
+          <h3 className="font-bold pb-2">{name}</h3>
           <h4>{cuisines.join(", ")}</h4>
           <h4>{avgRatingString}</h4>
           <h4>{costForTwo}</h4>

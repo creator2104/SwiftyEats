@@ -76,10 +76,10 @@ class UserClass extends React.Component {
         // const {count,count2} = this.state
         const {name,location,avatar_url} = this.state.userInfo
     return (
-      <div className="user-card">
+      <div className="user-card ">
         {/* <h1>count : {count}</h1>
         <h1>count : {count2}</h1> */}
-        <button onClick={()=>{
+        <button className="bg-orange-500 text-white rounded-lg m-4 p-2" onClick={()=>{
           // never update state variables directly 
           this.setState({
             count : this.state.count + 1,
@@ -88,10 +88,10 @@ class UserClass extends React.Component {
           })
           // this.setState will update the value of count and it contains the updated value of your set varibles 
         }}>Count increase</button>
-        <img src={avatar_url}/>
-        <h2>Name : {name}</h2>
-        <h3>Location : {location}</h3>
-        <h4>Contact: 1234567890</h4>
+        <img src={avatar_url} className="p-4"/>
+        <h2 className="p-4">Name : {name}</h2>
+        <h3 className="p-4">Location : {location}</h3>
+        <h4 className="p-4">Contact: 1234567890</h4>
       </div>
     );
   }

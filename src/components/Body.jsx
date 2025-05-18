@@ -147,13 +147,13 @@ const Body = () => {
   return listofrestaurants.length === 0 ? (
     <Shimmer />
   ) : (
-    <div className="body">
+    <div className="body font-serif">
       <div className="filter">
-        <div className="search">
+        <div className="search flex justify-center mt-5">
           <input
             type="text"
-            className="search-box"
-            placeholder="Do you want a coffee?"
+            className="rounded-lg border-gray-200  border-2 px-4 py-2 m-2 w-1/4 hover:border-orange-300 focus:border-orange-600 focus:outline-none"
+            placeholder="Search for Restaurants and Cuisines" 
             value={searchText}
             onChange={(e) => {
               setsearchText(e.target.value);
@@ -161,7 +161,7 @@ const Body = () => {
           />
           {/* here the value of searchtext could not be changed bcz the state variable is not changed and thats why we cant enter the text inside search box  */}
           <button
-            className="search-btn bg-gray-200 "
+            className="rounded-lg border-gray-200  border-2 px-4 py-2 m-2 bg-orange-500 text-white hover:bg-orange-600 cursor-pointer"
             onClick={() => {
               console.log(searchText);
               // Filter the restaurant cards and update the UI
@@ -174,8 +174,9 @@ const Body = () => {
             search
           </button>
         </div>
+        <p className="mx-8 mb-4 text-3xl font-medium">Restaurant List</p>
         <button
-          className="filter-btn"
+          className="rounded-lg border-1 hover:bg-gray-100 hover:border-2 py-2 px-4 mx-8 mb-4 cursor-pointer"
           onClick={() => {
             const filteredList = listofrestaurants.filter(
               (res) => parseFloat(res.info.avgRatingString) > 4.3
@@ -185,8 +186,9 @@ const Body = () => {
         >
           Top Rated restaurants
         </button>
+        <button className="rounded-lg border-1 hover:bg-gray-100 hover:border-2 py-2 px-4 mb-4 cursor-pointer">Reset</button>
       </div>
-      <div className="res-container">
+      <div className="res-container flex flex-wrap">
         {filteredRestaurant .map((restaurant) => (
           <Link style={{textDecoration:"none"}} key={restaurant.info.id} to={"/restaurants/"+restaurant.info.id}><RestaunrantCard resData={restaurant} /></Link>
         ))}
