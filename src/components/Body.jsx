@@ -83,20 +83,16 @@
 //react can efiiciently find out the difference between virtual doms and updates the ui
 // react is fast bcz it has virtual dom and diff algorithm which is very efficient , u can do efficient dom manipulation
 
-
-
-
-
 // App5
 import { useEffect, useState } from "react";
-import {Shimmer} from "./Shimmer";
+import { Shimmer } from "./Shimmer";
 import { Link } from "react-router";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import RestaunrantCard from "./RestaurantCard";
 
 const Body = () => {
   const [listofrestaurants, setlistofrestaurants] = useState([]);
-  const [filteredRestaurant,setfilteredRestaurant] = useState([]);
+  const [filteredRestaurant, setfilteredRestaurant] = useState([]);
 
   const [searchText, setsearchText] = useState("");
   useEffect(() => {
@@ -118,14 +114,14 @@ const Body = () => {
     // The ?. operator is like the . chaining operator, except that instead of causing an error if a reference is nullish (null or undefined), the expression short-circuits with a return value of undefined. When used with function calls, it returns undefined if the given function does not exist.
     // setlistofrestaurants(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     // setfilteredRestaurant(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-    
-    const restaurants =
-    json?.data?.cards
-      ?.find((card) => card?.card?.card?.gridElements?.infoWithStyle?.restaurants)
-      ?.card?.card?.gridElements?.infoWithStyle?.restaurants || [];
 
-  setlistofrestaurants(restaurants);
-  setfilteredRestaurant(restaurants);
+    const restaurants =
+      json?.data?.cards?.find(
+        (card) => card?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      )?.card?.card?.gridElements?.infoWithStyle?.restaurants || [];
+
+    setlistofrestaurants(restaurants);
+    setfilteredRestaurant(restaurants);
   };
   // console.log("body rendered");
 
@@ -135,14 +131,17 @@ const Body = () => {
   //   return <Shimmer/>
   // }
 
-  //  checking for online and offline status functionality 
-  const onlineStatus = useOnlineStatus()
+  //  checking for online and offline status functionality
+  const onlineStatus = useOnlineStatus();
 
-  if(!onlineStatus){
-    return <h1>Looks like you're offline !! please check your internet connection</h1>
+  if (!onlineStatus) {
+    return (
+      <h1>
+        Looks like you're offline !! please check your internet connection
+      </h1>
+    );
   }
 
-  
   // used ternary below
   return listofrestaurants.length === 0 ? (
     <Shimmer />
@@ -153,7 +152,7 @@ const Body = () => {
           <input
             type="text"
             className="rounded-lg border-gray-200  border-2 px-4 py-2 m-2 w-1/4 hover:border-orange-300 focus:border-orange-600 focus:outline-none"
-            placeholder="Search for Restaurants and Cuisines" 
+            placeholder="Search for Restaurants and Cuisines"
             value={searchText}
             onChange={(e) => {
               setsearchText(e.target.value);
@@ -186,11 +185,47 @@ const Body = () => {
         >
           Top Rated restaurants
         </button>
-        <button className="rounded-lg border-1 hover:bg-gray-100 hover:border-2 py-2 px-4 mb-4 cursor-pointer">Reset</button>
+        <button
+          className="rounded-lg border-1 hover:bg-gray-100 hover:border-2 py-2 px-4 mb-4 mr-8 cursor-pointer"
+          onClick={() => {
+            const filtered_delivery = listofrestaurants.filter(
+              (res) => Number(res?.info?.sla?.deliveryTime) < 25
+            );
+            setfilteredRestaurant(filtered_delivery);
+          }}
+        >
+          Fast Delivery
+        </button>
+        <button
+          className="rounded-lg border-1 hover:bg-gray-100 hover:border-2 py-2 px-4 mb-4 mr-8 cursor-pointer"
+          onClick={() => {
+            const filtered_veg = listofrestaurants.filter((res) =>
+              res?.info?.veg === true
+            )
+            setfilteredRestaurant(filtered_veg)
+          }}
+        >
+          Pure veg
+        </button>
+        <button
+          className="rounded-lg border-1 hover:bg-gray-100 hover:border-2 py-2 px-4 mb-4 cursor-pointer"
+          onClick={() => {
+            setfilteredRestaurant(listofrestaurants);
+            setsearchText("");
+          }}
+        >
+          Reset
+        </button>
       </div>
       <div className="res-container flex flex-wrap">
-        {filteredRestaurant .map((restaurant) => (
-          <Link style={{textDecoration:"none"}} key={restaurant.info.id} to={"/restaurants/"+restaurant.info.id}><RestaunrantCard resData={restaurant} /></Link>
+        {filteredRestaurant.map((restaurant) => (
+          <Link
+            style={{ textDecoration: "none" }}
+            key={restaurant.info.id}
+            to={"/restaurants/" + restaurant.info.id}
+          >
+            <RestaunrantCard resData={restaurant} />
+          </Link>
         ))}
       </div>
     </div>

@@ -11,3 +11,5 @@ export const LOGO_URL = "https://www.logodesign.net/logo/smoking-burger-with-let
 // when u want to export multiple things use named export
 
 export const MENU_API = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=23.2156354&lng=72.63694149999999&restaurantId="
+
+export const MENU_CARD_API = "https://media-assets.swiggy.com/swiggy/image/upload/"
