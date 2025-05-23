@@ -4,14 +4,16 @@ import User from "./User";
 // To make Userclass a component we write extends React.component
 // extends React.component will tell parcel that this is a class based component
 // React.component is a class which is given by react and Userclass is inheriting some properties from it
-
-// This line defines a new class component called UserClass.
-
 // extends React.Component - This means that UserClass inherits from the React.Component class.
-  
 // It gives the UserClass access to methods and properties that React components use, like render() and state.
 
+// class Userclass extends React.Component{
+//   render(){
+    // returns a piece of jsx which would be displayed to the UI
+//   }
+// }
 class UserClass extends React.Component {
+  // This line defines a new class component called UserClass.
   constructor(props) {
 
     // The constructor method is automatically called when a new instance of a class is created.
@@ -40,8 +42,12 @@ class UserClass extends React.Component {
     // when you are loading a class based component that means i am creating an instance of a class 
     // whenver you create an instance of a class constuctor would get called and this would be best place to receive props and create state variables 
     this.state = {
+      // state is a whole big object  which contains multiple state variables
       // count : 0,
       // count2 : 1,
+      // count3
+      // count4
+      // if we create multiple state varibles which is not being used so when we update the state variable 1 and 2 at that time react will not touch the count3,4,5  uses reconciliation process
       userInfo : {
         name : "Dummy",
         location : "Default" ,

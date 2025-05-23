@@ -75,6 +75,8 @@ export default About;
 // second child render
 
 // <DOM UPDATED IN A SINGLE BATCH>
+// react doing this work in two phases 1st one is render and then commit phase 
+// in render phase first the reconsiliation process wouldbe done and it patches all the render phase together and then in commit phase DOM operation and componentdidmount will be done so in reconsiliation process the difference beteween virtual DOM is being identified and then in commit phase the dom would actually get updated
 // this is being done for the optimization purpose
 
 // first child component did mount
