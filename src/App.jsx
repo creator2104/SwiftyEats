@@ -10,6 +10,12 @@ import Footer from "./components/Footer";
 import './index.css'
 
 
+// Eager loading (static)
+// import About from './About'; // bundled into main.js
+
+// Lazy loading (dynamic)
+// const About = React.lazy(() => import('./About')); // creates a separate chunk
+// This tells the bundler: “Don’t include About in the main bundle. Load it only when this code path is reached.”
 const Grocery = lazy(() => import ("./components/Grocery"))
 
 const App = () => {
@@ -74,3 +80,11 @@ const appRouter = createBrowserRouter([
 // createBrowserRouter will take a list of paths , path is just an array of object
 // a page is a component in react
 
+// Benefits of Chunking + Lazy Loading
+// ✅ Smaller initial JS bundle → Faster first load
+
+// ✅ Less memory usage
+
+// ✅ Easier caching of code
+
+// ✅ Better user experience on slow devices
