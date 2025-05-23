@@ -2,9 +2,14 @@ import { MENU_CARD_API } from "../utils/constants";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
 import { Shimmer } from "./Shimmer";
 import { useParams } from "react-router";
+// why custom hooks is being used
+// custom hooks make your code more readable, moduler and reusable
+// there are two responsibilities of restaurantMenu first is fetching the data and second is displaying the data on the UI
+// to decrease its responsibility of how the data is coming custom hooks is being used over here
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
+  // useparams give us resId
   const resInfo = useRestaurantMenu(resId);
 
   if (resInfo === null) return <Shimmer />;
