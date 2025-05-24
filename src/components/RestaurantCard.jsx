@@ -1,7 +1,7 @@
 import { CDN_URL } from "../utils/constants";
 // this is how you write named import
 
-const RestaunrantCard = ({resData}) =>{
+const RestaurantCard = ({resData}) =>{
     const {cloudinaryImageId,name,cuisines,avgRatingString,costForTwo} = resData.info;
     return( 
     <div className="res-card bg-gray-100 w-66 h-130 ml-8 my-6 shadow-lg rounded-lg p-4 hover:shadow-2xl transition-all duration-200 ease-in-out transform hover:scale-105">
@@ -16,4 +16,7 @@ const RestaunrantCard = ({resData}) =>{
     )
 }
 
-export default RestaunrantCard;
+// Higher order component (HOC) is a function that takes a component and returns a new component
+// RestaunrantCard will be taken as a input and will be returned as a new component which contains promoted label
+
+export default RestaurantCard;

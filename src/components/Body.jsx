@@ -1,4 +1,4 @@
-// import RestaunrantCard from "./Restaurantcard";
+// import RestaurantCard from "./Restaurantcard";
 // import resList from "../utils/mockdata";
 // import { useState } from "react";
 
@@ -63,7 +63,7 @@
 //         </div>
 //          <div className="res-container">
 //             {
-//                 listofrestaurants.map(restaurant => <RestaunrantCard key={restaurant.info.id} resData={restaurant}/>)
+//                 listofrestaurants.map(restaurant => <RestaurantCard key={restaurant.info.id} resData={restaurant}/>)
 //             }
 //          </div>
 //         </div>
@@ -88,7 +88,7 @@ import { useEffect, useState } from "react";
 import { Shimmer } from "./Shimmer";
 import { Link } from "react-router";
 import useOnlineStatus from "../utils/useOnlineStatus";
-import RestaunrantCard from "./RestaurantCard";
+import RestaurantCard from "./RestaurantCard";
 
 const Body = () => {
   const [listofrestaurants, setlistofrestaurants] = useState([]);
@@ -123,7 +123,7 @@ const Body = () => {
     setlistofrestaurants(restaurants);
     setfilteredRestaurant(restaurants);
   };
-  // console.log("body rendered");
+  console.log("body rendered");
 
   // Conditional Rendering
   // rendering on basis of condition is known as condition rendering
@@ -224,7 +224,7 @@ const Body = () => {
             key={restaurant.info.id}
             to={"/restaurants/" + restaurant.info.id}
           >
-            <RestaunrantCard resData={restaurant} />
+            <RestaurantCard resData={restaurant} />
           </Link>
         ))}
       </div>
