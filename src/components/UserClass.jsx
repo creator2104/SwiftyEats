@@ -1,5 +1,5 @@
 import React from "react";
-import User from "./User";
+// import User from "./User";
 //what is the class component - its a normal js class at the end of day
 // To make Userclass a component we write extends React.component
 // extends React.component will tell parcel that this is a class based component
