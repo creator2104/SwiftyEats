@@ -1,5 +1,7 @@
 import React from "react";
 import UserClass from "./UserClass";
+// import UserContext from "../utils/UserContext";
+
 
 class About extends React.Component {
   // whenever a class is created new instance would be created and then the constructor would be called and props would be extracted over here
@@ -40,6 +42,10 @@ class About extends React.Component {
     return (
       <div>
         <h1 className="p-4">About class component</h1>
+        {/* <div>LoggedIn User <UserContext.Consumer>
+          {({loggedInUser})=>(
+            <h1 className="text-xl font-bold py-2">{loggedInUser}</h1>
+          )}</UserContext.Consumer></div> */}
         <h2 className="p-4">This is namaste react series</h2>
         {/* Counter section */}
         <div className="mb-4 flex items-center gap-4">

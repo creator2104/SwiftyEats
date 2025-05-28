@@ -16,7 +16,17 @@ const RestaurantCard = ({resData}) =>{
     )
 }
 
-// Higher order component (HOC) is a function that takes a component and returns a new component
+// Higher order component (HOC) 
+// HOC is a function that takes a component and returns a new component
 // RestaunrantCard will be taken as a input and will be returned as a new component which contains promoted label
 
+// export const withPromotedLabel = (RestaurantCard) => {
+// return (props) => {
+//  return (
+//       <div>
+//        <label>Promoted</label>
+//        <RestaurantCard {...props}/>
+//       </div>
+// }
+// }
 export default RestaurantCard;

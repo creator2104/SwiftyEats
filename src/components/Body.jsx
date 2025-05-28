@@ -84,11 +84,12 @@
 // react is fast bcz it has virtual dom and diff algorithm which is very efficient , u can do efficient dom manipulation
 
 // App5
-import { useEffect, useState } from "react";
+import { useEffect, useState , useContext} from "react";
 import { Shimmer } from "./Shimmer";
 import { Link } from "react-router";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import RestaurantCard from "./RestaurantCard";
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
   const [listofrestaurants, setlistofrestaurants] = useState([]);
@@ -98,6 +99,10 @@ const Body = () => {
   useEffect(() => {
     fetchdata();
   }, []);
+
+  // const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
+  // above line is used to wrap the RestaurantCard component with the HOC (Higher Order Component) to add a promoted label
+
   // useeffect takes two arguements first is callback function and second arguement is dependency array
   // the callback func will be called after your component renders
 
@@ -123,7 +128,7 @@ const Body = () => {
     setlistofrestaurants(restaurants);
     setfilteredRestaurant(restaurants);
   };
-  console.log("body rendered");
+  // console.log("body rendered");
 
   // Conditional Rendering
   // rendering on basis of condition is known as condition rendering
@@ -141,6 +146,8 @@ const Body = () => {
       </h1>
     );
   }
+
+  const {setuserName , loggedInUser} = useContext(UserContext);
 
   // used ternary below
   return listofrestaurants.length === 0 ? (
@@ -216,6 +223,8 @@ const Body = () => {
         >
           Reset
         </button>
+        <label className="ml-6 mr-2">UserName :</label>
+        <input type="text" className="border border-black p-2 m-2" value={loggedInUser} onChange={(e)=>setuserName(e.target.value)}/>
       </div>
       <div className="res-container flex flex-wrap">
         {filteredRestaurant.map((restaurant) => (
@@ -226,6 +235,12 @@ const Body = () => {
           >
             <RestaurantCard resData={restaurant} />
           </Link>
+          // <Link
+          //   style={{ textDecoration: "none" }}
+          //   key={restaurant.info.id}
+          //   to={"/restaurants/" + restaurant.info.id} >
+          // {restaurant.data.promoted ? <RestaurantCardPromoted resData={restaurant}/> : <RestaurantCard resData={restaurant} />}
+          // </Link>
         ))}
       </div>
     </div>

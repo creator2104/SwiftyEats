@@ -1,4 +1,4 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
@@ -8,7 +8,7 @@ import Body from "./components/Body";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import './index.css'
-
+import UserContext from "./utils/UserContext";
 
 // Eager loading (static)
 // import About from './About'; // bundled into main.js
@@ -27,9 +27,22 @@ const App = () => {
 export default App
 
 const Applayout = () => {
+  const [userName , setuserName] = useState();
+  //authentication
+
+  useEffect(() => {
+   // Make an API call to fetch user data
+   const data = {
+      name: "Vinit Prajapati",
+   }
+   setuserName(data.name);
+  },[])
     return (
+      <UserContext.Provider value={{loggedInUser:userName , setuserName}}>
         <div className="app">
+          {/* <UserContext.Provider value={{loggedInUser:"Elon Musk"}}> */}
           <Header/>
+          {/* </UserContext.Provider> */}
           <Outlet/>
           {/* we cant see outlet in HTML because it is being replaced by children*/}
           {/* if path is / then body page will work */}
@@ -41,6 +54,7 @@ const Applayout = () => {
 
           <Footer/>
         </div>
+        </UserContext.Provider>
     )
 }
 
