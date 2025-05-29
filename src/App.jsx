@@ -9,6 +9,9 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import './index.css'
 import UserContext from "./utils/UserContext";
+import appStore from "./utils/AppStore";
+import { Provider } from "react-redux";
+import Cart from "./components/Cart";
 
 // Eager loading (static)
 // import About from './About'; // bundled into main.js
@@ -38,6 +41,8 @@ const Applayout = () => {
    setuserName(data.name);
   },[])
     return (
+      <Provider store={appStore}>
+        {/* whenever u want to provide your store wrap into provider for that component here we used for the whole application */}
       <UserContext.Provider value={{loggedInUser:userName , setuserName}}>
         <div className="app">
           {/* <UserContext.Provider value={{loggedInUser:"Elon Musk"}}> */}
@@ -51,10 +56,11 @@ const Applayout = () => {
           {/* <About/> */}
           {/* if path is /contact then contact page will work */}
           {/* <Contact/> */}
-
+      
           <Footer/>
         </div>
         </UserContext.Provider>
+        </Provider>
     )
 }
 
@@ -71,6 +77,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/about",
         element: <About />
+      },
+      {
+        path: "/cart",
+        element: <Cart />
       },
       {
         path: "/contact",

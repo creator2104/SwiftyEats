@@ -49,8 +49,8 @@ class UserClass extends React.Component {
       // count4
       // if we create multiple state varibles which is not being used so when we update the state variable 1 and 2 at that time react will not touch the count3,4,5  uses reconciliation process
       userInfo : {
-        name : "Dummy",
-        location : "Default" ,
+        name : "Vinit Prajapati",
+        location : "ausie" ,
       }
     }
     // console.log(this.props.name + "child constructor");
@@ -59,12 +59,12 @@ class UserClass extends React.Component {
     async componentDidMount() {
       // console.log(this.props.name + "child component did mount");
       // first constuctor then render then did mount would printed 
-      const data = await fetch("https://api.github.com/users/akshaymarch7")
-      const json = await data.json()
+      // const data = await fetch("https://api.github.com/users/akshaymarch7")
+      // const json = await data.json()
       // console.log(json);
 
       this.setState({
-        userInfo : json
+        // userInfo : json
       })
       // this will update the dummy data to json fetched data from github api
   }

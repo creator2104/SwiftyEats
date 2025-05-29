@@ -7,6 +7,7 @@ import { Link } from "react-router";
 import useOnlineStatus from "../utils/useOnlineStatus";
 // cretecontext is used to create a context provider and context consumer and useContext is used to access the context value from the context provider
 import ItemList from "./ItemList";
+import { useSelector } from "react-redux";
 // link hook work exectly same as anchor tag
 
 export const Header = () => {
@@ -32,6 +33,11 @@ export const Header = () => {
 
     // useContext is used to access the context value from the context provider
 
+    // subscribing to the store using a selector 
+    // selector is a hook that allows you to access the state of the store
+    const cartItems = useSelector((store) => store.cart.items);
+    console.log(cartItems);
+
     return (
         <div className="flex justify-between font-serif shadow-lg sticky top-0 bg-white text-lg z-50">
         <div className="logo-container flex">
@@ -47,13 +53,13 @@ export const Header = () => {
             {/* never use anchor tag in react instead use link beacuse anchor tag reloads whole page everytime and link refreshes only perticular component */}
             <li className="hover:bg-gray-200 p-1 cursor-pointer"> <Link to="/about">About us</Link></li>
             <li className="hover:bg-gray-200 p-1 cursor-pointer"> <Link to="/contact">Contact us</Link></li> 
-            <li className="cursor-pointer p-1">cart</li>
+            <li className="cursor-pointer hover:bg-gray-200 p-1 font-bold"><Link to="/cart">cart({cartItems.length})</Link></li>
               <button className="bg-orange-500 text-white px-4 rounded-lg border-1 hover:bg-orange-600 cursor-pointer" onClick={()=>{
               btnNameReact=="Login" ? setbtnNameReact("Logout") : setbtnNameReact("Login")
               // whenever this setbtnnamereact is getting called react will re-render whole header component 
               // every time the button is getting clicked react is doing re-consilliation process and diff algo and it also changes the button only not doing on another dom element that's why react is fast bcz it concentrate on the needed element to be updated
             }}>{btnNameReact}</button>
-            <li className="cursor-pointer p-1 font-bold">{loggedInUser}</li>
+            <li className="cursor-pointer p-1">{loggedInUser}</li>
          </ul>
         </div>
         </div>
