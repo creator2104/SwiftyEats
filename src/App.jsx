@@ -36,7 +36,7 @@ const Applayout = () => {
   useEffect(() => {
    // Make an API call to fetch user data
    const data = {
-      name: "Vinit Prajapati",
+      name: "",
    }
    setuserName(data.name);
   },[])
