@@ -3,7 +3,7 @@
 import { LOGO_URL } from "../utils/constants";
 import { useState,useContext } from "react";
 import UserContext from "../utils/UserContext";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 // cretecontext is used to create a context provider and context consumer and useContext is used to access the context value from the context provider
 import ItemList from "./ItemList";
@@ -45,9 +45,6 @@ export const Header = () => {
         </div>
         <div className="nav-items">
          <ul className="flex p-4 m-4 space-x-6">
-            <li className="p-1">
-              Online Status: {OnlineStatus ? "✅" : "🛑"} 
-            </li>
             <li className="hover:bg-gray-200 p-1 cursor-pointer"> <Link to="/">Home</Link></li>
             <li className="hover:bg-gray-200 p-1 cursor-pointer"> <Link to="/grocery">Grocery</Link></li>
             {/* never use anchor tag in react instead use link beacuse anchor tag reloads whole page everytime and link refreshes only perticular component */}
@@ -59,7 +56,10 @@ export const Header = () => {
               // whenever this setbtnnamereact is getting called react will re-render whole header component 
               // every time the button is getting clicked react is doing re-consilliation process and diff algo and it also changes the button only not doing on another dom element that's why react is fast bcz it concentrate on the needed element to be updated
             }}>{btnNameReact}</button>
-            <li className="cursor-pointer p-1">{loggedInUser}</li>
+            <li className="cursor-pointer pl-1">{loggedInUser}</li>
+             <li className="py-1">
+              {OnlineStatus ? "🟢" : "🔴"} 
+            </li>
          </ul>
         </div>
         </div>

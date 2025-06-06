@@ -90,6 +90,8 @@ const appRouter = createBrowserRouter([
         path: "/grocery",
         element:<Suspense fallback={<h1>Loading....</h1>}><Grocery/></Suspense>
       },
+      // Suspense is a React component used to wrap lazy-loaded components or anything that takes time to load (like data or code).
+      // It lets you show a fallback UI (like a loading message or shimmer) until the lazy component is fully loaded.
       {
         path:"/restaurants/:resId",
         // : means its a dynamic it would change acording to the data

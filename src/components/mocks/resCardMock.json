@@ -1,0 +1,84 @@
+{
+    "info": {
+        "id": "453130",
+        "name": "Natural Ice Cream",
+        "cloudinaryImageId": "RX_THUMBNAIL/IMAGES/VENDOR/2025/3/21/68cce04a-3999-483e-a5ee-4b3711e11d8a_453130.jpg",
+        "locality": "Gandhinagar (Swagat Rainforest)",
+        "areaName": "Gandhinagar RK",
+        "costForTwo": "₹150 for two",
+        "cuisines": [
+            "Ice Cream",
+            "Desserts"
+        ],
+        "avgRating": 4.8,
+        "veg": true,
+        "parentId": "2093",
+        "avgRatingString": "4.8",
+        "totalRatingsString": "537",
+        "sla": {
+            "deliveryTime": 19,
+            "lastMileTravel": 5,
+            "serviceability": "SERVICEABLE",
+            "slaString": "15-20 mins",
+            "lastMileTravelString": "5.0 km",
+            "iconType": "ICON_TYPE_EMPTY"
+        },
+        "availability": {
+            "nextCloseTime": "2025-06-06 23:59:00",
+            "opened": true
+        },
+        "badges": {
+            "imageBadges": [
+                {
+                    "imageId": "Rxawards/_CATEGORY-Ice-creams.png",
+                    "description": "Delivery!"
+                }
+            ]
+        },
+        "isOpen": true,
+        "type": "F",
+        "badgesV2": {
+            "entityBadges": {
+                "imageBased": {
+                    "badgeObject": [
+                        {
+                            "attributes": {
+                                "description": "Delivery!",
+                                "imageId": "Rxawards/_CATEGORY-Ice-creams.png"
+                            }
+                        }
+                    ]
+                },
+                "textBased": {},
+                "textExtendedBadges": {}
+            }
+        },
+        "aggregatedDiscountInfoV3": {
+            "header": "10% OFF",
+            "subHeader": "UPTO ₹40"
+        },
+        "differentiatedUi": {
+            "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+            "differentiatedUiMediaDetails": {
+                "lottie": {},
+                "video": {}
+            }
+        },
+        "reviewsSummary": {},
+        "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+        "restaurantOfferPresentationInfo": {},
+        "externalRatings": {
+            "aggregatedRating": {
+                "rating": "--"
+            }
+        },
+        "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
+    },
+    "analytics": {
+        "context": "seo-data-3f69c528-2f4a-4bc7-8413-f4e082e806b2"
+    },
+    "cta": {
+        "link": "https://www.swiggy.com/city/ahmedabad/natural-ice-cream-gandhinagar-swagat-rainforest-gandhinagar-rk-rest453130",
+        "type": "WEBLINK"
+    }
+}

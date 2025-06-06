@@ -13,6 +13,7 @@ const Contact = () => {
           <p><span className='font-semibold'>Gmail:</span> mr.vinitprajapati07@gmail.com</p>
           <p><span className='font-semibold'>Github:</span> https://github.com/creator2104/food-app-React-vite.git</p>
           <p><span className='font-semibold'>Linkedin:</span> https://Linkedin/vinitprajapati07 </p>
+          {/* <button>Tap here</button> */}
     </div>
     </div>
    
