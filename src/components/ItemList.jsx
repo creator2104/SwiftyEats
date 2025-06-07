@@ -38,7 +38,7 @@ const ItemList = ({ items, dummy }) => {
               className="w-full h-32 object-cover rounded"
             />
             <button
-              className="absolute bottom-2 left-1/2 transform -translate-x-1/2 px-4 py-1 bg-white shadow-md rounded-lg border border-green-400 text-sm hover:bg-gray-100"
+              className="absolute bottom-2 left-1/2 transform -translate-x-1/2 px-4 py-1 bg-white shadow-md rounded-lg border border-green-400 text-sm cursor-pointer hover:bg-gray-100"
               onClick={() => handleAddItem(item)}
             >
               Add +

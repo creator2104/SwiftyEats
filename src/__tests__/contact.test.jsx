@@ -2,7 +2,7 @@ import { render ,screen } from "@testing-library/react"
 import Contact from "../components/Contact.jsx"
 import { describe, expect, test } from "vitest"
 import   '@testing-library/jest-dom';
-
+import { it } from "vitest";
 
 // describe shows us the group of test cases
 // u can make nested describes too

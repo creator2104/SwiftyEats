@@ -19,6 +19,7 @@ import Header from "../components/Header"
 import { BrowserRouter } from "react-router-dom";
 import { expect } from "vitest";
 import '@testing-library/jest-dom';
+import { it } from "vitest";
 
 it("Should load header component with a login button",()=>{
     render(
