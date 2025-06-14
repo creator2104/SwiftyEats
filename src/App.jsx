@@ -12,6 +12,8 @@ import UserContext from "./utils/UserContext";
 import appStore from "./utils/AppStore";
 import { Provider } from "react-redux";
 import Cart from "./components/Cart";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 // Eager loading (static)
 // import About from './About'; // bundled into main.js
@@ -58,6 +60,16 @@ const Applayout = () => {
           {/* <Contact/> */}
       
           <Footer/>
+           <ToastContainer
+            position="top-right"
+            autoClose={1500}
+            hideProgressBar
+            newestOnTop
+            closeOnClick
+            pauseOnHover
+            draggable
+            theme="light"
+          />
         </div>
         </UserContext.Provider>
         </Provider>

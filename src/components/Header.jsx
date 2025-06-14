@@ -9,6 +9,8 @@ import useOnlineStatus from "../utils/useOnlineStatus";
 import ItemList from "./ItemList";
 import { useSelector } from "react-redux";
 // link hook work exectly same as anchor tag
+import { Home, Info, Phone , ShoppingCart , ShoppingBag } from "lucide-react";
+
 
 export const Header = () => {
 
@@ -44,13 +46,41 @@ export const Header = () => {
           <img className="w-28" src={LOGO_URL} alt="Food-app-logo"/>
         </div>
         <div className="nav-items">
-         <ul className="flex p-4 m-4 space-x-6">
-            <li className="hover:bg-gray-200 p-1 cursor-pointer"> <Link to="/">Home</Link></li>
-            <li className="hover:bg-gray-200 p-1 cursor-pointer"> <Link to="/grocery">Grocery</Link></li>
-            {/* never use anchor tag in react instead use link beacuse anchor tag reloads whole page everytime and link refreshes only perticular component */}
-            <li className="hover:bg-gray-200 p-1 cursor-pointer"> <Link to="/about">About us</Link></li>
-            <li className="hover:bg-gray-200 p-1 cursor-pointer"> <Link to="/contact">Contact us</Link></li> 
-            <li className="cursor-pointer hover:bg-gray-200 p-1 font-bold"><Link to="/cart">cart({cartItems.length})</Link></li>
+      <ul className="flex p-4 m-4 space-x-6 items-center">
+  <li className="hover:bg-gray-200 p-1 cursor-pointer">
+    <Link to="/" className="flex items-center gap-2">
+      <Home size={18} />
+      Home
+    </Link>
+  </li>
+
+  <li className="hover:bg-gray-200 p-1 cursor-pointer">
+    <Link to="/grocery" className="flex items-center gap-2">
+      <ShoppingBag size={18} />
+      Grocery
+    </Link>
+  </li>
+
+  <li className="hover:bg-gray-200 p-1 cursor-pointer">
+    <Link to="/about" className="flex items-center gap-2">
+      <Info size={18} />
+      About Us
+    </Link>
+  </li>
+
+  <li className="hover:bg-gray-200 p-1 cursor-pointer">
+    <Link to="/contact" className="flex items-center gap-2">
+      <Phone size={18} />
+      Contact Us
+    </Link>
+  </li>
+
+  <li className="cursor-pointer hover:bg-gray-200 p-1 font-bold">
+    <Link to="/cart" className="flex items-center gap-2">
+      <ShoppingCart size={18} />
+      Cart ({cartItems.length})
+    </Link>
+  </li>
               <button className="bg-orange-500 text-white px-4 rounded-lg border-1 hover:bg-orange-600 cursor-pointer" onClick={()=>{
               btnNameReact=="Login" ? setbtnNameReact("Logout") : setbtnNameReact("Login")
               // whenever this setbtnnamereact is getting called react will re-render whole header component 

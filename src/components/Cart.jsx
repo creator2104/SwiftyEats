@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import ItemList from "./ItemList";
 import { clearCart } from "../utils/cartSlice";
+import { toast } from "react-toastify"; 
 
 const Cart = () => {
   // whenever you do a selector make sure you are using right portion of the store if you dont use the right portion of the store it will make big performance loss
@@ -14,6 +15,15 @@ const Cart = () => {
   const dispatch = useDispatch(); 
   const handleClearCart = () => {
     dispatch(clearCart())
+     toast.success("Cart cleared successfully!", {
+      position: "top-right",
+      autoClose: 1500,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      theme: "light"
+    });
   }
 
   return (

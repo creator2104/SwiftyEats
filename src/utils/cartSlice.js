@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const cartSlice = createSlice({
     name : "cart",
-    // name of the slice
+    // name of the slice 
     initialState : {
         items: [],
         // initial state of cart will be empty

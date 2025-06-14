@@ -101,7 +101,7 @@ import useRestaurantMenu from "../utils/useRestaurantMenu";
 import Restaurantcategory from "./Restaurantcategory";
 import { Shimmer } from "./Shimmer";
 import { useParams } from "react-router";
-
+ 
 const RestaurantMenu = () => {   
   const { resId } = useParams();
 
