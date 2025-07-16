@@ -18,9 +18,6 @@
 
 //   // const  { itemCards } =resInfo?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.[1]?.card?.card || {};
 
-//   const itemCards = resInfo?.cards?.find((card) => card.groupedCard)
-// ?.groupedCard?.cardGroupMap?.REGULAR?.cards.find((c) => c.card?.card?.itemCards).card?.card?.itemCards;
-
 //   console.log( resInfo?.cards?.[4].groupedCard?.cardGroupMap?.REGULAR?.cards);
 
 //   const categories = resInfo?.cards?.[4].groupedCard?.cardGroupMap?.REGULAR?.cards.filter(c => c.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory")
@@ -100,7 +97,7 @@ import { useState } from "react";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
 import Restaurantcategory from "./Restaurantcategory";
 import { Shimmer } from "./Shimmer";
-import { useParams } from "react-router";
+import { useParams } from "react-router-dom";
  
 const RestaurantMenu = () => {   
   const { resId } = useParams();
@@ -113,21 +110,23 @@ const RestaurantMenu = () => {
 
   if (resInfo === null) return <Shimmer />;
 
-  const { itemCards } =
-    resInfo?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.[1]?.card
-      ?.card || {};
+  // const { itemCards } =
+  //   resInfo?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.[1]?.card?.card || {};
 
-  console.log(resInfo?.cards?.[4].groupedCard?.cardGroupMap?.REGULAR?.cards);
+ const regularCards = resInfo?.cards?.find(
+  (card) => card?.groupedCard
+)?.groupedCard?.cardGroupMap?.REGULAR?.cards || [];
 
-  const categories =
-    resInfo?.cards?.[4].groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
-      (c) =>
-        c.card?.card?.["@type"] ===
-        "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
-    );
+const categories = regularCards.filter(
+  (c) =>
+    c.card?.card?.["@type"] ===
+    "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+);
 
-  // console.log(categories);
-  const restaurantInfo = resInfo?.cards?.[2]?.card?.card?.info;
+ const restaurantInfo = resInfo?.cards?.find(
+  (c) => c?.card?.card?.info
+)?.card?.card?.info;
+
   return (
     <div className="menu text-center">
       <h1 className="font-bold my-6 text-2xl">

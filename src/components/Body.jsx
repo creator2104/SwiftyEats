@@ -86,7 +86,7 @@
 // App5
 import { useEffect, useState , useContext} from "react";
 import { Shimmer } from "./Shimmer";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import RestaurantCard from "./RestaurantCard";
 import UserContext from "../utils/UserContext";
